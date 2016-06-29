@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bios
   resources :posts
   resources :tags
   devise_for :users
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'posts#index'
-
+  get 'users/:id/about' => 'users#show', as: :about
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

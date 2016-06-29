@@ -2,14 +2,12 @@
 
 one:
   user_id: 
-  nickname: MyString
-  url: MyString
-  phone: MyString
+  name: MyString
+  website: MyString
   city: MyString
 
 two:
   user_id: 
-  nickname: MyString
-  url: MyString
-  phone: MyString
+  name: MyString
+  website: MyString
   city: MyString
