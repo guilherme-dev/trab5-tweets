@@ -15,10 +15,9 @@ class BiosController < ApplicationController
 
   # GET /bios/new
   def new
-    @bio = Bio.find_by_id(current_user.id)
+    @bio = current_user.bio
     if @bio
-        format.html { redirect_to @bio, notice: 'Você já preencheu seus dados' }
-        format.json { render :show, status: :created, location: @bio }
+        redirect_to "/posts", notice: 'Você já criou seu perfil'
       else
         @bio = Bio.new
       end
@@ -36,8 +35,8 @@ class BiosController < ApplicationController
 
     respond_to do |format|
       if @bio.save
-        format.html { redirect_to @bio, notice: 'Suas informações foram salvas' }
-        format.json { render :show, status: :created, location: @bio }
+        format.html { redirect_to @bio, notice: 'Feito!'}
+        format.json { render :show, status: :created, location: @bio}
       else
         format.html { render :new }
         format.json { render json: @bio.errors, status: :unprocessable_entity }
@@ -63,6 +62,9 @@ class BiosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bio
       @bio = Bio.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "Você ainda não preencheu seu perfil"
+      redirect_to :action => 'new'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

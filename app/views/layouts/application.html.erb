@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Tuiter</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
-    </head>
+    <%= render "layouts/head" %>
     <body>
-        <% if !user_signed_in? %>
-            <%= link_to "Cadastrar", new_user_registration_path %>
-            <%= link_to "Entrar", new_user_session_path %>
-        <% else %>
-            <%= link_to('Sair', destroy_user_session_path, :method => :delete) %> 
-        <% end %>
+        <div id="site-wrapper" class="container">
+            <header>
+                <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Troca do modo de navegação</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">Tuítes</a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Início<span class="sr-only">(Guia atual)</span></a></li>
+                                <li><%= link_to "Perfil", bio_path(current_user) %></li>
+                                <li><%= link_to "Tags", tags_path %></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <% if !user_signed_in? %>
+                                <li><%= link_to "Cadastrar", new_user_registration_path %></li>
+                                <li><%= link_to "Entrar", new_user_session_path %></li>
+                                <% else %>
+                                <li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
+                                <% end %>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                </nav>
+            </header>
+            <p id="notice" class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
 
-        <%= yield %>
-
+            <%= render "layouts/footer" %>
+        </div> <!-- /#site-wrapper -->
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
 </html>

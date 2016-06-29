@@ -10,11 +10,10 @@
       </ul>
     </div>
   <% end %>
+  
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+    
+  <input type="hidden" name="bio[user_id]" id="bio_user_id" value="<%= current_user.id %>">
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+/* Resets */
+/*reset do alert do bootstrap*/
+.alert {
+	padding: 0;
+	margin: 0;
+}
+
+/* General */
+#site-wrapper {
+	max-width: 730px;
+}
+
+/* Menu */
+.navigation-menu li a,
+.navigation-menu span {
+    font-weight: 600;
+    color: #353638;
+    padding: 0;
+}
+
+.navigation-menu>.active>a,
+.navigation-menu>.active>a:hover,
+.navigation-menu li a:hover,
+.navigation-menu>.active>a:focus {
+    color: #028772;
+    text-decoration: none;
+    background-color: transparent;
+    transition: 0.3s;
+}
