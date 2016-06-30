@@ -9,24 +9,21 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-  
-
-    
+  <% end %>    
   <input type="hidden" name="bio[user_id]" id="bio_user_id" value="<%= current_user.id %>">
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :nome %><br>
+    <%= f.text_field :name, class: 'control-text-area'%>
   </div>
   <div class="field">
     <%= f.label :website %><br>
-    <%= f.text_field :website %>
+    <%= f.text_field :website, class: 'control-text-area' %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.label :cidade %><br>
+    <%= f.text_field :city, class: 'control-text-area'%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Atualizar Perfil'%>
   </div>
 <% end %>

@@ -5,6 +5,6 @@ class Post < ActiveRecord::Base
   			length: { maximum: 144, too_long: "%{count} No máximo 144 caracteres, obrigado."}
   			
   	def self.recent_posts
-  		Post.where("created_at >= ?", 1.week.ago.utc).order("votes_count DESC, created_at DESC")
+  		Post.where("created_at >= ?", 1.week.ago.utc).order("created_at DESC")
 	end
 end

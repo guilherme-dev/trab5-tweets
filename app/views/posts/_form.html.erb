@@ -12,17 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :content, class: "control-label" %><br>
+    <%= f.label :texto, class: "control-label" %><br>
     <%= f.text_area :content, class: "control-text-area"%>
   </div>
   
   <div class="field">
     <%= f.label :Tags, class: "control-label" %>
     <div class="tags-text-area">
-      <%= f.select :tag_ids, Tag.all.map{|x| [x.name, x.id]}, {include_blank: true}, :multiple => true, :class => 'control-text-area' %>
+      <%= f.select :tag_ids, Tag.all.map{|x| [x.name, x.id]}, {include_blank: true}, :multiple => true, :class => 'control-select' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit class: "default-button" %>
+    <%= f.submit 'Tuitar', class: "default-button" %>
   </div>
 <% end %>

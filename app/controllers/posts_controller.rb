@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @bios = Bio.all
-    @posts = Post.all
+    @posts = Post.recent_posts
   end
 
   # GET /posts/1

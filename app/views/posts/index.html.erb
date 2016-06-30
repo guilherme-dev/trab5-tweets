@@ -1,14 +1,19 @@
-<div class="container">
+<div class="container all-posts-content">
     <h3>Timeline</h3>
-    <%= link_to 'Tuitar', new_post_path %>
-    <div class="posts-content">
+    <%= link_to 'Tuitar', new_post_path, class: 'new-tuite-link' %>
+    <section class="posts-section">
         <% @posts.each do |post| %>
-            <p class="post-title"><strong><%= post.user.email %></strong></p>
-            <p class="post-text"><%= post.content %></p>
+            <div class="posts-content">
+                <p class="post-title"><strong><%= post.user.email %></strong></p>
+                <span class="tag-name"><%= post.tags.map { |t| t.name }.join ', ' %></span>
+                <p class="post-text"><%= post.content %></p>
+            </div>
+            <div class="user-tuites-links">
             <%= link_to 'Ver', post %>
             <% if post.user == current_user %>
                 <%= link_to 'Editar', edit_post_path(post) %>
                 <%= link_to 'Remover', post, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
+            </div>
         <% end %>
     </div>

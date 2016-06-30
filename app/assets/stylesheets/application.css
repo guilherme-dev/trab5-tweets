@@ -31,6 +31,10 @@ a:hover, a:focus {
 	color: #3B94D9;
 }
 
+td {
+	padding: 10px;
+}
+
 /* General */
 #menu-wrapper,
 #site-wrapper {
@@ -48,6 +52,9 @@ a:hover, a:focus {
 
 
 /* Menu */
+.navbar {
+	margin-bottom: 0;
+}
 .navbar-default {
 	max-width: 730px;
 	background-color: #EBF4FB;
@@ -81,4 +88,70 @@ a:hover, a:focus {
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
+}
+
+/*posts*/
+.all-posts-content {
+	width: 90%;
+	margin: 10px auto;
+}
+
+.all-posts-content h3 {
+	text-align: center;
+}
+
+.new-tuite-link,
+input[type="submit"] {
+	font-size: 18px;
+	padding: 9px 16px 8px 17px;
+    text-align: center;
+    color: #fff !important;
+    border-radius: 8%;
+    background-color: #1b95e0;
+    border: 1px solid transparent;
+}
+
+.new-tuite-link {
+	display: inline-block;
+	margin: 10px;
+}
+
+.new-tuite-link:focus, 
+.new-tuite-link:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover {
+	background-color: #3B94D9;
+}
+
+.post-title {
+	display: inline-block;
+}
+
+.tag-name {
+	float: right;
+	color: #3B94D9;
+}
+
+.posts-content {
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #e1e8ed;
+}
+
+.user-tuites-links {
+	text-align: right;
+	margin-bottom: 5px;
+}
+
+/*forms*/
+.control-text-area {
+	width: 90%;
+	border : 1px solid #d3d7d9;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.control-select {
+	border: 1px solid #d3d7d9;
+	width: 30%;
 }
