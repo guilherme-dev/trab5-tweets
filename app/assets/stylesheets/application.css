@@ -21,25 +21,64 @@
 	margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color: #3B94D9;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+	background-color: transparent;
+	color: #3B94D9;
+}
+
 /* General */
+#menu-wrapper,
 #site-wrapper {
 	max-width: 730px;
+	background-color: #f5f8fa;
 }
+
+#menu-wrapper {
+	padding: 0;
+}
+
+#site-wrapper {
+	padding-bottom: 50px;
+}
+
 
 /* Menu */
-.navigation-menu li a,
-.navigation-menu span {
-    font-weight: 600;
-    color: #353638;
-    padding: 0;
+.navbar-default {
+	max-width: 730px;
+	background-color: #EBF4FB;
+	height: 46px;
+	border: none; /*Reseta border do boostrap*/
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-.navigation-menu>.active>a,
-.navigation-menu>.active>a:hover,
-.navigation-menu li a:hover,
-.navigation-menu>.active>a:focus {
-    color: #028772;
+.navbar-default li a {
+    font-weight: 600;
+    color: #66757f;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav li a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #3B94D9 !important;
     text-decoration: none;
     background-color: transparent;
     transition: 0.3s;
+}
+
+.nav-collapse.collapse.in {
+    height: auto !important;
+}
+
+/* login */
+.login-content {
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
 }

@@ -2,7 +2,7 @@
 <html>
     <%= render "layouts/head" %>
     <body>
-        <div id="site-wrapper" class="container">
+        <div id="menu-wrapper" class="container">
             <header>
                 <nav class="navbar navbar-default">
                         <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,11 +16,14 @@
                             <a class="navbar-brand" href="/">Tuítes</a>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="collapse navbar-collapse" id="navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="/">Início<span class="sr-only">(Guia atual)</span></a></li>
-                                <li><%= link_to "Perfil", bio_path(current_user) %></li>
+                                <li><a href="/">Início<span class="sr-only">(Guia atual)</span></a></li>
+                                <% if user_signed_in? %>
+                                <li><%= link_to "Perfil", perfil_path %></li>
+                                <li><%= link_to "Usuários", bios_path %></li>
                                 <li><%= link_to "Tags", tags_path %></li>
+                                <% end %>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <% if !user_signed_in? %>
@@ -33,6 +36,8 @@
                         </div><!-- /.navbar-collapse -->
                 </nav>
             </header>
+        </div> <!-- /.menu-wrapper -->
+        <div id="site-wrapper" class="container">
             <p id="notice" class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
             <%= yield %>
@@ -40,7 +45,18 @@
             <%= render "layouts/footer" %>
         </div> <!-- /#site-wrapper -->
         <!-- Latest compiled and minified JavaScript -->
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <script>
+            $(function(){
+                var guia = window.location.pathname.split("/")[1];
+                if (guia == 'posts') {
+                    $(".navbar-nav li>a[href='/']").parent().addClass("active");
+                } else {
+                    $(".navbar-nav li>a[href='/" + guia + "']").parent().addClass("active");
+                }
+            });
+        </script>
     </body>
 </html>

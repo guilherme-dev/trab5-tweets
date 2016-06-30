@@ -1,30 +1,14 @@
 <div class="container">
-<h3>Timeline</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.content %></td>
-        <td><%= post.user.email %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %> 
-</div>
-
+    <h3>Timeline</h3>
+    <%= link_to 'Tuitar', new_post_path %>
+    <div class="posts-content">
+        <% @posts.each do |post| %>
+            <p class="post-title"><strong><%= post.user.email %></strong></p>
+            <p class="post-text"><%= post.content %></p>
+            <%= link_to 'Ver', post %>
+            <% if post.user == current_user %>
+                <%= link_to 'Editar', edit_post_path(post) %>
+                <%= link_to 'Remover', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        <% end %>
+    </div>

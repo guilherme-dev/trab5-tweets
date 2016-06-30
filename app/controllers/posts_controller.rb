@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @bios = Bio.all
     @posts = Post.all
   end
 

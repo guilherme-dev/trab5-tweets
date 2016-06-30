@@ -1,0 +1,22 @@
+<p>
+  <strong>user_id:</strong>
+  <%= @bio.user.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bio.name %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @bio.website %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @bio.city %>
+</p>
+
+<%= link_to 'Editar', edit_bio_path(@bio) %> |
+<%= link_to 'Voltar', bios_path %>

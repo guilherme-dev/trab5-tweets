@@ -13,11 +13,16 @@ class BiosController < ApplicationController
   def show
   end
 
+  def perfil
+    @bio = current_user.bio
+    redirect_to "/bios/new", notice: 'Preencha seu perfil' unless @bio
+  end 
+
   # GET /bios/new
   def new
     @bio = current_user.bio
     if @bio
-        redirect_to "/posts", notice: 'Você já criou seu perfil'
+        redirect_to @bio
       else
         @bio = Bio.new
       end
@@ -62,9 +67,6 @@ class BiosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bio
       @bio = Bio.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "Você ainda não preencheu seu perfil"
-      redirect_to :action => 'new'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
